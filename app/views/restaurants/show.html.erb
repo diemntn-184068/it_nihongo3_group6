@@ -38,7 +38,7 @@
 <ul>
   <% @restaurant.restaurant_comment.each do |restaurant_comment|%>
    <li><%= restaurant_comment.comment%>
-     (<i><%= restaurant_comment.user_id %></i>)</li>
+     (<i><%= restaurant_comment.user.name %></i>)</li>
 <% end %>
 </ul>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
