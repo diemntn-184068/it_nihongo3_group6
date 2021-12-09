@@ -2,6 +2,7 @@
 
 <p>
   <% if @restaurant.image.attached? %>
+    <strong>Image:</strong>
     <%= image_tag @restaurant.image %>
   <% end %>
 </p>
@@ -18,6 +19,10 @@
 <p>
   <strong>Description:</strong>
   <%= @restaurant.description %>
+</p>
+<p>
+  <strong>Description2:</strong>
+  <%= @restaurant.description2 %>
 </p>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
