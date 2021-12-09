@@ -25,7 +25,8 @@ class RestaurantCommentsController < ApplicationController
     @restaurant_comment.user_id = current_user.id
     respond_to do |format|
       if @restaurant_comment.save
-        format.html { redirect_to @restaurant_comment, notice: "Restaurant comment was successfully created." }
+        url = "/restaurants/" + @restaurant_comment.restaurant_id.to_s
+        format.html { redirect_to url, notice: 'Restaurant comment was successfully created.' }
         format.json { render :show, status: :created, location: @restaurant_comment }
       else
         format.html { render :new, status: :unprocessable_entity }
