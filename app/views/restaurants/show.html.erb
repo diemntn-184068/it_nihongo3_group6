@@ -24,5 +24,15 @@
   <strong>Description2:</strong>
   <%= @restaurant.description2 %>
 </p>
+<h2>Review From<h2>
+<%= form_with(model: @restaurant_comment, local: true) do |form| %>
+  <div class= "field">
+    <%= form.text_area :comment %>
+    <%= form.hidden_field :restaurant_id, :value => @restaurant.id %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
