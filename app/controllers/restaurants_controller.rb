@@ -9,7 +9,9 @@ before_action :authenticate_user!
   # GET /restaurants/1 or /restaurants/1.json
   def show
       @restaurant_comment = RestaurantComment.new
+      @restaurant_food = RestaurantFood.new
   end
+  
 
   # GET /restaurants/new
   def new
