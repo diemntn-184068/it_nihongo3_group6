@@ -1,5 +1,6 @@
 <div class="jumbotron m-5"  >
   <h1 class="display-4">Restaurants Reviewへようこそ</h1>
+  <p>こんにちは、<%= link_to current_user.email, users_show_path %></p>
   <hr class="my-4">
   <p>レストランについてレビューをするサイトです</p>
   <%= button_to "レストラン一覧をみる", restaurants_path, method: :get ,class: "btn btn-primary btn-lg" %>
