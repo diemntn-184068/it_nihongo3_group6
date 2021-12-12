@@ -43,6 +43,7 @@
         <td><%= restaurant_food.name %></td>
         <td><%= restaurant_food.description %></td>
         <td><%= image_tag restaurant_food.image %></td>
+        <td><%= link_to 'Show', restaurant_food %></td>
         <td><%= link_to 'Edit', edit_restaurant_food_path(restaurant_food) %></td>
         <td><%= link_to 'Destroy', restaurant_food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

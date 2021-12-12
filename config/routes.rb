@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :restaurant_food_reviews
   resources :restaurant_foods
   resources :restaurant_comments
   get 'users/show'
