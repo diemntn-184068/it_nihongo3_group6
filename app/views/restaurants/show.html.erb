@@ -17,6 +17,15 @@
     <%= image_tag @restaurant.image %>
   <% end %>
 </p>
+<p>
+    <strong>Like:</strong>
+    <%= link_to "Like", restaurant_like_path(@restaurant), method: :post %>
+    <% @restaurant.restaurant_like.each do |restaurant_like| %>
+        
+        <% if (restaurant_like.user_id==current_user.id) %>
+        <% end %>
+    <% end %>
+</p>
 
 <p>
   <strong>Description:</strong>

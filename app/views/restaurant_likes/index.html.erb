@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Restaurant Likes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Restaurant</th>
+      <th>Like</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurant_likes.each do |restaurant_like| %>
+      <tr>
+        <td><%= restaurant_like.user_id %></td>
+        <td><%= restaurant_like.restaurant_id %></td>
+        <td><%= restaurant_like.like %></td>
+        <td><%= link_to 'Show', restaurant_like %></td>
+        <td><%= link_to 'Edit', edit_restaurant_like_path(restaurant_like) %></td>
+        <td><%= link_to 'Destroy', restaurant_like, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Restaurant Like', new_restaurant_like_path %>
