@@ -3,7 +3,7 @@
     margin: 0 auto;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     padding-left: 70px;
-    padding-top: 30px;
+    padding-top: 25px;
     padding-bottom: 50px;
 
 }
@@ -38,6 +38,7 @@
 
 .actions{
     width: 400px;
+    
     input{
         border: 1px solid gray;
         border-radius: 5px;
@@ -49,6 +50,7 @@
         color: white;
         letter-spacing: -1px;
         width: 100%;
+        margin-bottom: 10px;
     }
 }
 
@@ -60,3 +62,11 @@
     margin-top: 60px;
 
  }
+
+ .image-upload{
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Georgia,'Microsoft YaHei',simsun,serif;
+    letter-spacing: -1px;
+
+}
