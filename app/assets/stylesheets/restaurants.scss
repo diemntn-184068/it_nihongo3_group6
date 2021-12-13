@@ -97,8 +97,20 @@
 
         }
     }
+    .image-restaurant{
+        width: 50%;
+        img{
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+        text-align: center;
+        margin: 0 auto;
+    }
+
 
     .list-comment-restaurant{
+        
         .input-comment{
             textarea{
                 width: 100%;
