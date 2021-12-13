@@ -45,7 +45,7 @@
         }
     }
     .btn-learn-more{
-        margin-top: 55px;
+        margin-top: 40px;
         .btn-more{
             font-size: 16px;
             padding: 5px;
@@ -85,4 +85,67 @@
 
         }
     }
+}
+.details-restaurant{
+    width: 100%;
+    .infor-details{
+        .infor-about-restaurant{
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+
+        }
+    }
+
+    .list-comment-restaurant{
+        .input-comment{
+            textarea{
+                width: 100%;
+                border-radius: 5px !important;
+                border:1px solid gray;
+                padding: 13px;
+                
+            }
+        }
+        .actions-comment{
+           
+            input{
+                border-radius: 5px;
+                border: 1px solid gray;
+                padding: 12px;
+                float:right;
+
+            }
+            
+        }
+        .show-list-comment{
+                margin-top: 100px;
+           
+                .image-comment{
+                    img{
+                        width: 50px;
+                        height: 50px;
+                        border-radius: 50%;
+                        margin: 0 auto;
+                    }
+                }
+                .card{
+                    border: none;
+                }
+            
+        }
+
+    }
+    tr{
+        th,td{
+            text-align: center;
+        }
+        td{
+            border:none;
+        }
+        
+    }
+    
+   
 }

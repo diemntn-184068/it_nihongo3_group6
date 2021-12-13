@@ -1,120 +1,135 @@
 <p id="notice"><%= notice %></p>
-
-<ul class="list-group">
-  <li class="list-group-item">
-      <h4><strong>レストラン名:</strong><%= @restaurant.name %></h4
-  </li>
-  
-  <li class="list-group-item">
-      <h4><strong>住所:</strong><%= @restaurant.address %></h4>
-　</li>
-　
-　<li class="list-group-item rounded img-fluid" align="center">
-　    <% if @restaurant.image.attached? %>
-        <%= image_tag @restaurant.image%>
+<div class="details-restaurant">
+   <h1>
+      <%= @restaurant.name %> Restaurant
+   </h1>
+   <div class="image-restaurant">
+      <% if @restaurant.image.attached? %>
+      <%= image_tag @restaurant.image%>
       <% end %>    
-　</li>
-　
-　<li class="list-group-item">
-      <h4><strong>Description:</strong><%= @restaurant.description %></h4>
-　</li>
-　
-　<li class="list-group-item">
-      <h4><strong>レストランの詳細:</strong><%= @restaurant.description2 %></h4>
-　</li>
-</ul>
+   </div>
+   <div class="infor-details">
+      <div class="infor-about-restaurant mt-5 mb-5">
+         <h3 class="text-center">レストランの情報</h3>
+         <table class="table ">
+            <tbody>
+               <tr>
+                  <td>レストラン名</td>
+                  <td>:</td>
+                  <td><%= @restaurant.name %></td>
+               </tr>
+               <tr>
+                  <td>住所</td>
+                  <td>:</td>
+                  <td><%= @restaurant.address %></td>
+               </tr>
+               <tr>
+                  <td>タイトル</td>
+                  <td>:</td>
+                  <td><%= @restaurant.description %></td>
+               </tr>
+               <tr>
+                  <td>レストランの評価</td>
+                  <td>:</td>
+                  <td><%= @restaurant.description2 %></td>
+               </tr>
 
-<br/><br/>
-<h1><b>・レストラン料理のリスト</b></h1>
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col"><h4>料理名</h4></th>
-      <th scope="col"><h4>説明</h4></th>
-      <th scope="col"><h4>映像</h4></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @restaurant.restaurant_food.each do |restaurant_food| %>
-      <tr>
-        <td><h4><%= restaurant_food.name %></h4></td>
-        <td><h4><%= restaurant_food.description %></h4></td>
-        <td "object-fit: scale-down"><%= image_tag restaurant_food.image %></td>
-        <td>
-            <button type="button" class="btn btn-primary">
-                <%= link_to 'Show', restaurant_food %>
-            </button>
-        </td>
-        
-        <td>
-            <button type="button" class="btn btn-primary">
-                <%= link_to 'Edit', edit_restaurant_food_path(restaurant_food) %>
-            </button>
-        </td>
-        
-        <td>
-            <button type="button" class="btn btn-primary">
-                <%= link_to 'Destroy', restaurant_food, method: :delete, data: { confirm: 'Are you sure?' } %>
-            </button>
-        </td>
-        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+               <tr>
+                  <td></td>
+                  <td></td>
+                  <td>
+                      <%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'.html_safe, edit_restaurant_path(@restaurant) %>  
+                  </td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+      <div class="list-foods">
+         <h3 class="text-center">レストラン料理のリスト</h3>
+         <h5 class="float-end"><%= link_to '<i class="fa fa-plus-square" aria-hidden="true"></i> 新しい料理を追加'.html_safe, new_restaurant_food_path%></h5>
+         <table class="table">
+            <thead>
+               <tr>
+                  <th scope="col">番号</th>
+                  <th scope="col">料理名</th>
+                  <th scope="col">説明</th>
+                  <th scope="col">映像</th>
+                  <th scope="col">活動</th>
+               </tr>
+            </thead>
+            <tbody>
+               <%if @restaurant.restaurant_food.length > 0 %>
+               <% @restaurant.restaurant_food.each.with_index do |restaurant_food, index| %>
+               <tr>
+                  <td><%= index + 1 %></th>
+                  <td><%= restaurant_food.name %></td>
+                  <td><%= restaurant_food.description %></td>
+                  <td class="image-food"><%= image_tag restaurant_food.image %></td>
+                  <td>
+                  <ul class="nav justify-content-center">
+                  <li class="nav-item">
+                  <%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, restaurant_food, class:"nav-link"%>
+                  </li>
+                  <li class="nav-item">
+                  <%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'.html_safe, edit_restaurant_food_path(restaurant_food), class:"nav-link" %>
+                  </li>
+                 
+                </ul>
+                  </td>
+               </tr>
+               <%end%>
+               <%else%>
+               <tr>
+                  <td>まだ食べ物はありません。</td>
+               </tr>
+               <%end%>
+            </tbody>
+         </table>
+      </div>
+      <div class="list-comment-restaurant">
+          <h3>レストランにレビュー</h3>
+         <div class="user-comment">
+         <%= form_with(model: @restaurant_comment, local: true) do |form| %>
+            <form>
+               <div class="mb-3 input-comment">
+                  <%= form.text_area :comment,  placeholder:"コメントを入力してください" %>
+                  <%= form.hidden_field :restaurant_id, :value => @restaurant.id %>
+               </div>
+               <div class="actions-comment">
+                  <%= form.submit %>
+               </div>
+            </form>
+            <% end %> 
+         </div>
+         <div class="show-list-comment">
+            <%if @restaurant.restaurant_comment.length > 0 %>
+               <% @restaurant.restaurant_comment.each do |restaurant_comment|%>
+                  <div class="card mb-3">
+                  <div class="row ">
+                     <div class="col-md-1">
+                       <div class="image-comment">
+                            <%= image_tag restaurant_comment.user.avatar %>
+                       </div>
+                     </div>
+                     <div class="col-md-5">
+                        <div class="card-body p-0">
+                        <h5 class="card-title"><%= restaurant_comment.user.name %></h5>
+                        <p class="card-text"> <%= restaurant_comment.comment%></p>
+                        
+                        </div>
+                     </div>
+                  </div>
+                  </div>
+               <% end %>
+            <% end %>
+         </div>
 
-<br/>
-<button type="button" class="btn btn-primary">
-<%= link_to "新しい料理を追加", new_restaurant_food_path %>
-</button>
+         <div class="back-btn">
+             <%= link_to '<i class="fa fa-arrow-left" aria-hidden="true"></i> Back'.html_safe, restaurants_path %>
+         </div>
+      </div>
+   </div>
+</div>
 
-<br/><br/>
-<h1><b>・レビューのフォーム</b></h1>
-<%= form_with(model: @restaurant_comment, local: true) do |form| %>
-<form>
-  <div class="mb-3">
-    <label class="form-label">コメントを入力してください</label>
-    <%= form.text_area :comment %>
-    
-    <%= form.hidden_field :restaurant_id, :value => @restaurant.id %>
-  </div>
-  <div class="actions md-3">
-      <button type="button" class="btn btn-primary">
-          <%= form.submit %>
-    　</button>
-  </div>
-</form>
-<% end %>
 
-<br/><br/>
-<h1><b>・顧客のコメントのリスト</b></h1>
-<ul class="list-group">
-  <% @restaurant.restaurant_comment.each do |restaurant_comment|%>
-   <li class="list-group-item">
-       <h4>
-       <%= restaurant_comment.comment%>
-     (<i><%= restaurant_comment.user.name %></i>)
-       </h4>
-  </li>
-<% end %>
-</ul>
 
-<br/>
-<br/>
-<table class="table">
-    <thead>
-    <tr>
-      <th scope="col">
-          <button type="button" class="btn btn-primary">
-                <%= link_to 'Edit', edit_restaurant_path(@restaurant) %>              
-          </button>
-      </th>
-      <th scope="col">
-          <button type="button" class="btn btn-primary">
-                <%= link_to 'Back', restaurants_path %>
-          </button>
-      </th>
-    </tr>
-  </thead>
-</table>
