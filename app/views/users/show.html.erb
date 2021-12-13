@@ -1,13 +1,19 @@
-<h1>プロフィール</h1>
-<p>
-  <% if @user.avatar.attached? %>
+<h1 class="mt-4 mb-2 d-flex justify-content-center">プロフィール</h1>
+<div class="d-flex justify-content-center">
+<div class="card p-4" style="width: 18rem;">
+  <div class="card-img-top border d-flex justify-content-center p-2">
+      <% if @user.avatar.attached? %>
     <%= image_tag @user.avatar %>
   <% end %>
-</p>
-<h3>名前</h3>
-<%= @user.name %>
-
-<h3>年齢</h3>
-<%= @user.age %>
-<h3>メールアドレス</h3>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @user.name %></h5>
+    <div class="card-text">
+       年齢:
+<%= @user.age %><br>
+メールアドレス:
 <%= @user.email %> 
+    </div>
+  </div>
+</div>
+</div>
