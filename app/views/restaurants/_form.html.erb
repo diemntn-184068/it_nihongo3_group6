@@ -11,23 +11,23 @@
    </div>
    <% end %>
    <div class="field">
-      <%= form.label :name %>
+      <%= form.label :name, "レストラン名（Name）" %>
       <%= form.text_field :name, class:"input-data-restaurant" , class:"input-data-form" %>
    </div>
    <div class="field">
-      <%= form.label :address %>
+      <%= form.label :address, "住所（Address）" %>
       <%= form.text_field :address, class:"input-data-restaurant", class:"input-data-form"%>
    </div>
    <div class="field">
-      <%= form.label :description, "Title" %>
+      <%= form.label :description, "説明（Description）" %>
       <%= form.text_field :description, class:"input-data-restaurant", class:"input-data-form"%>
    </div>
    <div class="field">
-      <%= form.label :description2, "Review Content" %>
+      <%= form.label :description2, "レビュー内容（Review Content）" %>
       <%= form.text_area :description2, class:"input-data-restaurant", class:"input-data-form"%>
    </div>
    <div class="field">
-      <%= form.label :image %>
+      <%= form.label :image, "映像（Image）" %>
       <%= form.file_field :image, class:"image-upload"%>
    </div>
    <div class="actions">
