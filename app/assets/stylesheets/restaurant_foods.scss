@@ -3,70 +3,6 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .form-food{
-
-    width: 50%;
-    margin: 0 auto;
-    padding: 20px 50px;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-    .title{
-        font-family: "Times New Roman", Times, serif;
-        margin-top: 15px;
-    }
-
-    .form-add-infomation{
-        
-        margin: 0 auto;
-        width: 100%;
-        .field {
-            padding: 8px;
-            .input-data-food{
-                border: 1px solid gray;
-                border-radius:5px !important;
-                padding:8px;
-                width:400px;
-                font-family: "Times New Roman", Times, serif;
-                font-size: 18px;
-            }
-        }
-        
-        label{
-            font-size: 16px;
-            font-weight: 600;
-            font-family: Georgia,'Microsoft YaHei',simsun,serif;
-            letter-spacing: -0.5px;
-            line-height: 1.4;
-    
-        }
-        
-        .image-food{
-            border-radius: 5px;
-            margin-top: 15px;
-            font-size: 16px;
-            font-family: Georgia,'Microsoft YaHei',simsun,serif;
-            letter-spacing: -1px;
-
-        }
-        
-        .actions {
-            width: 100%;
-            margin: 0 auto;
-            text-align: center;
-            input{
-                border: 1px solid gray;
-                border-radius: 5px;
-                margin-top: 15px;
-                font-size: 18px;
-                font-family: Georgia,'Microsoft YaHei',simsun,serif;
-                padding: 12px;
-                background-color: black;
-                color: white;
-                letter-spacing: -1px;
-            }
-            
-        
-        }
-        
-    }
     i{
        font-size: 18px;
     }
@@ -75,4 +11,5 @@
         font-size: 15px;
         color: black;
     }
+    
 }

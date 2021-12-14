@@ -12,23 +12,23 @@
    <% end %>
    <div class="field">
       <%= form.label :name %>
-      <%= form.text_field :name, class:"input-data-restaurant" %>
+      <%= form.text_field :name, class:"input-data-restaurant" , class:"input-data-form" %>
    </div>
    <div class="field">
       <%= form.label :address %>
-      <%= form.text_field :address, class:"input-data-restaurant" %>
+      <%= form.text_field :address, class:"input-data-restaurant", class:"input-data-form"%>
    </div>
    <div class="field">
       <%= form.label :description, "Title" %>
-      <%= form.text_field :description, class:"input-data-restaurant"%>
+      <%= form.text_field :description, class:"input-data-restaurant", class:"input-data-form"%>
    </div>
    <div class="field">
       <%= form.label :description2, "Review Content" %>
-      <%= form.text_area :description2, class:"input-data-restaurant"%>
+      <%= form.text_area :description2, class:"input-data-restaurant", class:"input-data-form"%>
    </div>
    <div class="field">
-      <%= form.label :image, class:"btn-add-image-restaurant"%>
-      <%= form.file_field :image, class:"image-restaurant"%><br>
+      <%= form.label :image %>
+      <%= form.file_field :image, class:"image-upload"%>
    </div>
    <div class="actions">
       <%= form.submit %>

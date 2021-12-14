@@ -1,19 +1,39 @@
-<h1 class="mt-4 mb-2 d-flex justify-content-center">プロフィール</h1>
-<div class="d-flex justify-content-center">
-<div class="card p-4" style="width: 18rem;">
-  <div class="card-img-top border d-flex justify-content-center p-2">
-      <% if @user.avatar.attached? %>
-    <%= image_tag @user.avatar %>
-  <% end %>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title"><%= @user.name %></h5>
-    <div class="card-text">
-       年齢:
-<%= @user.age %><br>
-メールアドレス:
-<%= @user.email %> 
-    </div>
-  </div>
-</div>
+<div class="profile">
+   <h1 class="mt-4 mb-5 text-center">プロフィール</h1>
+   <div class="row mt-5">
+      <div class="col-5">
+         <div class="image-avatar">
+            <% if @user.avatar.attached? %>
+            <%= image_tag @user.avatar %>
+            <% end %>
+         </div>
+      </div>
+      <div class="col-7">
+     
+        <h3 class="text-center mb-5 mt-5">Information Account </h3>
+                
+             
+         <table class="table">
+            <tbody>
+              
+               <tr>
+                  <td>名前 </td>
+                  <td> : </td>
+                  <td><%= @user.name%></td>
+               </tr>
+               <tr>
+                  <td>メールアドレス </td>
+                  <td> : </td>
+                  <td><%= @user.email %></td>
+               </tr>
+               <tr>
+                  <td>年齢 </td>
+                  <td> : </td>
+                  <td><%= @user.age %></td>
+               </tr>
+               
+            </tbody>
+         </table>
+      </div>
+   </div>
 </div>

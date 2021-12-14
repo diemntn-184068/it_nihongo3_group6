@@ -14,22 +14,22 @@
 
   <div class="field ">
     <%= form.label :restaurant_id %>
-    <%= form.number_field :restaurant_id, class:"input-data-food" %>
+    <%= form.number_field :restaurant_id, class:"input-data-form" %>
   </div>
 
   <div class="field">
     <%= form.label :name, "Food" %>
-    <%= form.text_field :name, class:"input-data-food" %>
+    <%= form.text_field :name, class:"input-data-form" %>
   </div>
 
   <div class="field">
     <%= form.label :description, "Review Content" %>
-    <%= form.text_area :description, class:"input-data-food" %>
+    <%= form.text_area :description, class:"input-data-form" %>
   </div>
 
   <div class="field">
-     <%= form.label :image, class:"btn-add-image-food" %>
-     <%= form.file_field :image, class:"image-food" %><br>
+     <%= form.label :image %>
+     <%= form.file_field :image, class:"image-upload" %><br>
   </div>
 
 
